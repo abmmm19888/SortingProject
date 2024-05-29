@@ -5,36 +5,36 @@ public class Main {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             ArrayList<Integer> numbers = new ArrayList<>();
-            System.out.println("Ingrese números separados por espacios (el número 4 no está permitido):");
+            System.out.println("Enter numbers separated by spaces (the number 4 is not allowed):");
 
             String[] input = scanner.nextLine().split(" ");
             for (String str : input) {
                 try {
                     int num = Integer.parseInt(str);
                     if (num == 4) {
-                        System.out.println("El número 4 no está permitido. Programa terminado.");
+                        System.out.println("The number 4 is not allowed. Program terminated.");
                         return;
                     }
                     numbers.add(num);
                 } catch (NumberFormatException e) {
-                    System.out.println("Entrada inválida. Programa terminado.");
+                    System.out.println("Invalid input. Program terminated.");
                     return;
                 }
             }
 
-            System.out.println("Seleccione el tipo de ordenación: 1 para ascendente, 2 para descendente:");
+            System.out.println("Select the type of sorting: 1 for ascending, 2 for descending:");
             int sortType = scanner.nextInt();
 
             switch (sortType) {
                 case 1 -> {
                     bubbleSort(numbers, true);
-                    System.out.println("Lista ordenada en orden ascendente: " + numbers);
+                    System.out.println("Sorted list in ascending order: " + numbers);
                 }
                 case 2 -> {
                     bubbleSort(numbers, false);
-                    System.out.println("Lista ordenada en orden descendente: " + numbers);
+                    System.out.println("Sorted list in descending order: " + numbers);
                 }
-                default -> System.out.println("Opción inválida. Programa terminado.");
+                default -> System.out.println("Invalid option. Program terminated.");
             }
         }
     }
